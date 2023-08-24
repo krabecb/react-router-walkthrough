@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const Starship = (props) => {
 
@@ -59,6 +59,9 @@ const Starship = (props) => {
                         <li>Appears in {starship.films?.length} film{starship.films?.length > 1 ? "s" : ""}</li>
                     </ul>
                 </div>
+                <Link to="/ships">
+                    <div>Return to Starship List</div>
+                </Link>
             </div>
         );
     };

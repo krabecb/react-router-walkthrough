@@ -4,6 +4,7 @@ import Main from '../../pages/Main/Main'
 import StarshipsList from '../../pages/StarshipsList/StarshipsList';
 import Starship from '../../pages/Starship/Starship';
 import Nav from '../Nav/Nav'
+import NotFound from '../../pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/ships" element={<StarshipsList />} />
           <Route path="/ships/:id" element={<Starship />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

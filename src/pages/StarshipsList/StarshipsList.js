@@ -20,20 +20,33 @@ const StarshipsList = (props) => {
     useEffect(() => {
         fetchShips()
     }, [])
+
+    const loaded = () => {
+        return(
+            <div className="starships-list">
+                {ships.map((ship) => {
+
+                    let { name, url } = ship;
+                    let path = url.split("/")
+                    const id = path[path.length - 2]
+
+                    return (
+                        <Link to={`/ships/${id}`} key={id}>
+                            <h2>{name}</h2>
+                        </Link>
+                    );
+                })}
+            </div>
+        )
+    }
+
+    const loading = () => {
+        return (<h1>Loading...</h1>);
+    };
+
     return (
         <div className="starships-list">
-            {ships.map((ship) => {
-
-                let { name, url } = ship;
-                let path = url.split("/")
-                const id = path[path.length - 2]
-
-                return (
-                    <Link to={`/ships/${id}`} key={id}>
-                        <h2>{name}</h2>
-                    </Link>
-                );
-            })}
+            <section>{ships.length ? loaded() : loading()}</section>
         </div>
     );
 };
